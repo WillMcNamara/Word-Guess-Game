@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+    <head lang="en-us">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GoT Hangman</title>
+        <link rel="stylesheet" type="text/css" href=http://meyerweb.com/eric/tools/css/reset/>
+        <link rel="stylesheet" type="text/css" href=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>
+        <link rel="stylesheet" type="text/css" href=assets/css/style.css> 
+    </head>
+
+    <body>
+        <h1>GoT Hangman</h1>
+        
+        <p>Score: <div id="wins"></div></p>
+        
+        <p>Current Word: <div id="currentword"></div></p>
+        
+        <p>Guesses remaining: <div id="remaining"></div></p>
+
+        <p>Guessed letters: <div id="guessedLetters"></div></p>
+
+        <script type="text/javascript">
+    
+            
+
+          document.onkeyup = function(event) {
+
+            var score = document.getElementById("wins"); 
+            var guessedLetters = document.getElementById("guessedLetters");
+            var remaining = document.getElementById("remaining");
+            var word = document.getElementById("currentword");
+
+            var words = ["one", "two", "three"]
+        
+            
+
+            document.getElementById("currentword").textContent = words[Math.floor(Math.random()*words.length)];
+            
+            console.log(word.textcontent)
+
+
+
+
+
+            }
+
+            
+            
+
+
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
