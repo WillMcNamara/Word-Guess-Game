@@ -1,4 +1,4 @@
-var words = ["one", "two", "three"];
+var words = ["arya", "sansa", "jon", "cersei"];
 var validGuesses = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ];
 var userGuesses = [];
 var hiddenWord;
@@ -39,6 +39,7 @@ document.onkeyup = function(event) {
             
             //check if guess is in the word and reveal letters
             if (hiddenWord.includes(userGuess) === true) {
+                newWord = "";
                 //reveal userguess letters
                 for(i = 0; i < hiddenWord.length; i++) {
                     if (hiddenWord.charAt(i) === userGuess) {
@@ -58,18 +59,32 @@ document.onkeyup = function(event) {
 
         // reset game on win, add 1 to score
         if (word === hiddenWord) {
-            document.getElementById("wins") = score++;
-            guessedLetters = "";
+            document.getElementById("wins").textContent = parseInt(score) + 1;
+            document.getElementById("guessedLetters").textContent = "";
             document.getElementById("remaining").textContent = 7;
+            word = "";
             hiddenWord = words[Math.floor(Math.random()*words.length)];
             userGuesses = [];
+            wordUI = [];
+            for(i = 0; i < hiddenWord.length; i++) {
+                wordUI.push("_ ");
+                document.getElementById("currentword").textContent = word + wordUI[i];
+                word = document.getElementById("currentword").textContent;
+            }
         }
 
         //reset game on loss
         if (parseInt(remaining) === 0) {
             document.getElementById("guessedLetters").textContent = "";
             document.getElementById("remaining").textContent = 7;
+            word = "";
             hiddenWord = words[Math.floor(Math.random()*words.length)];
             userGuesses = [];
+            wordUI = [];
+            for(i = 0; i < hiddenWord.length; i++) {
+                wordUI.push("_ ");
+                document.getElementById("currentword").textContent = word + wordUI[i];
+                word = document.getElementById("currentword").textContent;
+            }
         }
 }
